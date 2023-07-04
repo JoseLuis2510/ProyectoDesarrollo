@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/firebase/proyecto-90acd-firebase-adminsdk-e891a-d860522198.json
