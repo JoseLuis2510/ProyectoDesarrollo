@@ -11,7 +11,8 @@
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>    
     </head>
     <body>
-        <div th:fragment="tablaCriterios" style="width: 80%" class="d-flex justify-content-center">
+
+        <div th:fragment="tablaCriterios" style="width: 80%; margin-left: 10% " class="d-flex justify-content-center">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -139,6 +140,7 @@
                 </tbody>
             </table>
         </div>
+
         <div th:fragment="terminosCondiciones" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -168,7 +170,7 @@
                         b. No debes utilizar el software para fines ilegales, difamatorios, obscenos, fraudulentos o que infrinjan los derechos de terceros.
                         <br>
                         c. No debes interferir con la seguridad o el funcionamiento del software ni intentar eludir las medidas de protección implementadas por TCS Sofware.
-                        
+
                         <br>
                         Actualizaciones y Mantenimiento:
                         <br>
@@ -210,6 +212,9 @@
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                         </ul>
                         <ul class="navbar-nav">
+                            <div>
+                                <a><button type="button" class="btn btn-success">Registrarse</button></a>                                
+                            </div>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
@@ -230,6 +235,25 @@
                     </div>
                 </div>
             </section>
+            <form>
+                <div th:fragment="header" class="modal fade" id="botonRegistrarse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
             <!--             <section id="main-header" class=" text-black">
               <div class=" bs-secundary text-center mt-5 p-2">
                   <div >
