@@ -40,7 +40,7 @@
                 <div class=" bs-light text-center mt-5 p-2">
                     <div >
                         <div>
-                            <h1><i></i> [[#{plantilla.banner}]]</h1>
+                            <h4><i></i> [[#{plantilla.banner}]]</h4>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class=" bs-light text-center mt-5 p-2">
                     <div >
                         <div>
-                            <h1><i></i> [[#{plantilla.mensaje1}]]</h1>
+                            <h4><i></i> [[#{plantilla.mensaje1}]]</h4>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                 <div class="navbar navbar-expand-sm navbar-toggler bg-info p-0">
 
                     <ul class="navbar-nav">
-                        <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.terminos}]]</a></li>
+                        <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" th:href="@{/categoria/listado}">[[#{plantilla.terminos}]]</a></li>
                         <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.privacidad}]]</a></li>
                         <li class="nav-item px-2"><a class="nav-link" th:href="@{/tickets/listado}">[[#{plantilla.politica}]]</a></li>
                         <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.seguridad}]]</a></li>
@@ -118,5 +118,7 @@
                 </div>
             </div>
         </footer>
+        
+        
     </body>
 </html>
