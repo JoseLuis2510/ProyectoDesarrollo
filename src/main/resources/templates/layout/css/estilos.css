@@ -1,0 +1,52 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 21 jul. 2023, 22:32:17
+    Author     : Andres.M
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.motivos{
+    padding: 0 0 50px 0;
+    text-align: center;
+}
+
+h4{
+    font-size: 40px;
+    color: black;
+}
+
+.box-container{
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.box{
+    shadow: 0 5px 10px black;
+    background-color: white;
+    display: none;border-top: 2px solid aqua;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px black;
+    background-color: white;
+    display: none;
+}
+
