@@ -26,7 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/tickets/listado}">[[#{plantilla.tickets}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/calendario/calendario}">Calendario</a></li>
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/calendario/calendario}">[[#{calendario.titulo}]]</a></li>
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -41,14 +41,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </nav>
             <div>
-                <h1>Calendario</h1>
-                <p>Usted podrá observar los diferentes día del año para poder organizarse</p>
+                <h1>[[#{calendario.titulo}]]</h1>
+                <p>[[#{calendario.texto}]]</p>
                 <form >
                     <input type="date" class="form-control">
                 </form>
 
 
-                <a href="/"><button style="margin-left: 2%" type="button" class="btn btn-success"> Volver </button></a>
+                <a href="/"><button style="margin-left: 2%" type="button" class="btn btn-success"> [[#{btn.atras}]] </button></a>
 
 
             </div>        
