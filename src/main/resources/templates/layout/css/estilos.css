@@ -33,10 +33,9 @@ h4{
 }
 
 .box-container{
-    margin-top: 55px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    width: 100%;
+    display: flex;
+    gap: 16px;
 }
 
 .box{
@@ -49,4 +48,10 @@ h4{
     background-color: white;
     display: none;
 }
+
+.grow1{
+    flex-grow: 1; 
+}
+
+
 
