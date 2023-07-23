@@ -67,17 +67,18 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
     
+    /*
     @Bean
     public UserDetailsService users() {
         UserDetails admin = User.builder()
                 .username("juan")
                 .password("{noop}123")
-                .roles("USER", "VENDEDOR", "ADMIN")
+                .roles("USER", "TECHNICAL", "ADMIN")
                 .build();
         UserDetails sales = User.builder()
                 .username("rebeca")
                 .password("{noop}456")
-                .roles("USER", "VENDEDOR")
+                .roles("USER", "TECHNICAL")
                 .build();
         UserDetails user = User.builder()
                 .username("pedro")
@@ -85,15 +86,15 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user, sales, admin);
-    }
+    }*/
     
-    /*@Autowired
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
         build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }*/
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -104,19 +105,19 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/registro/**", "/js/**", "/webjars/**", "/css/**")
                 .permitAll()
                 .requestMatchers(
-                        "/producto/nuevo", "/producto/guardar",
-                        "/producto/modificar/**", "/producto/eliminar/**",
-                        "/categoria/nuevo", "/categoria/guardar",
+                        "/categoria/listado", "/tickets/listado",
+                        "/usuario/listado", "/producto/eliminar/**",
+                        "/categoria/nuevo", "/calendario/calendario",
                         "/categoria/modificar/**", "/categoria/eliminar/**",
                         "/usuario/nuevo", "/usuario/guardar",
                         "/usuario/modificar/**", "/usuario/eliminar/**",
                         "/reportes/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
-                        "/producto/listado",
                         "/categoria/listado",
+                        "/tickets/listado",
                         "/usuario/listado"
-                ).hasAnyRole("ADMIN", "VENDEDOR")
+                ).hasAnyRole("ADMIN", "TECHNICAL")
                 .requestMatchers("/facturar/carrito")
                 .hasRole("USER")
                 )
