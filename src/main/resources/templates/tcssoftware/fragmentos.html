@@ -11,7 +11,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>    
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> 
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:fragment="header" class="header">
@@ -41,5 +42,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </nav>  
         </header>
+        <div th:fragment="cuerpo" id="general">
+            <div id="herramientas">
+
+            </div>
+            <div id="detalleUsuario">
+
+            </div>
+            <div id="otros">
+
+            </div>
+
+        </div>
+
     </body>
+
+
+
 </html>

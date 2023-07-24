@@ -14,233 +14,232 @@
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> 
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <header th:fragment="header" class="header">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
-                <div class="container">
-                    <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
-                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <ul class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_TECHNICAL')">
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/tickets/listado}">[[#{plantilla.tickets}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/calendario/calendario}">[[#{calendario.titulo}]]</a></li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <div>
-                                <button type="button" class="btn btn-success">
-                                    <a th:href="@{/login}" class="btn"></a>Login</button>
-                            </div>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item"  th:href="@{/(lang=es)}">ES</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
-                                </ul>
-                            </li>
-                        </ul>                        
-                    </div>
+    <header th:fragment="header" class="header">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <div class="container">
+                <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <ul class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_TECHNICAL')">
+                        <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
+                        <li class="nav-item px-2"><a class="nav-link" th:href="@{/tickets/listado}">[[#{plantilla.tickets}]]</a></li>
+                        <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
+                        <li class="nav-item px-2"><a class="nav-link" th:href="@{/calendario/calendario}">[[#{calendario.titulo}]]</a></li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div>
+                            <button type="button" class="btn btn-success">
+                                <a th:href="@{/login}" class="btn"></a>Login</button>
+                        </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"  th:href="@{/(lang=es)}">ES</a></li>
+                                <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
+                            </ul>
+                        </li>
+                    </ul>                        
                 </div>
-            </nav>
-
-        </header>
-
-        <div >
-            <div>
-                <h4>[[#{plantilla.mensaje1}]]</h4>
             </div>
-        </div>
-        <div th:fragment="tablaCriterios" style="width: 80%; margin-left: 10% " class="d-flex justify-content-center">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Criterios</th>
-                        <th scope="col">TSC Software</th>
-                        <th scope="col">Competencia</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Opcion Premiun</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M18 6l-12 12"></path>
-                            <path d="M6 6l12 12"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Precio Competitivo</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M18 6l-12 12"></path>
-                            <path d="M6 6l12 12"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Registro de Usuarios</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Preguntas Frecuentes</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Edicion de Perfiles</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Seguimiento de Tickets</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Chat</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Asistencia Gratuita</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M18 6l-12 12"></path>
-                            <path d="M6 6l12 12"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Telefono Incorporado</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M18 6l-12 12"></path>
-                            <path d="M6 6l12 12"></path>
-                            </svg></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Soporte 24/7</th>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M18 6l-12 12"></path>
-                            <path d="M6 6l12 12"></path>
-                            </svg></td>
-                    </tr>
-                </tbody>
-            </table>
+        </nav>
 
-        </div>
+    </header>
 
-        <div th:fragment="motivosUtilizarTCS" style="width: 80%; margin-left: 15% " class="d-flex justify-content-center">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Sistema Ligero</th>
-                        <th scope="col">Vista de Clientes</th>
-                        <th scope="col">Escalabilidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-
-                    </tr>
-                    <tr>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <img src="https://us.123rf.com/450wm/blankstock/blankstock1901/blankstock190102641/125931591-icono-de-entrega-r%C3%A1pida-signo-de-tiempo-elemento-de-dise%C3%B1o-de-calidad-icono-de-estilo-cl%C3%A1sico.jpg?ver=6" style="width: 130px" alt=""></img>
-                            <p>Sistema ligero, lo que lo</p>
-                            <p>convierte en un sistema</p>
-                            <p>rapido de navegar entre</p>
-                            <p>ventanas</p>
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <img src="https://st2.depositphotos.com/5266903/11817/v/600/depositphotos_118171126-stock-illustration-staff-flat-vector-icon.jpg" style="width: 100px" alt=""></img>
-                            <p>Analisis de tickets de clientes,</p>
-                            <p>notas de soluciones anteriores,</p>
-                            <p>experiencia del cliente y estado</p>
-                            <p>actual del ticket</p>
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <img src="https://static.vecteezy.com/system/resources/previews/008/060/728/non_2x/website-statistics-linear-icon-with-scalability-vector.jpg" style="width: 100px" alt=""></img>
-                            <p>Se adapta a empresas de todos</p>
-                            <p>los tamanos con posibilidad de</p>
-                            <p>crecimiento a medida que la</p>
-                            <p>empresa lo necesite</p>
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l5 5l10 -10"></path>
-                            </svg></td>
-                    </tr>
-                </tbody>
-            </table>
-
+    <div >
+        <div>
+            <h4>[[#{plantilla.mensaje1}]]</h4>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div th:fragment="tablaCriterios" style="width: 80%; margin-left: 10% " class="d-flex justify-content-center">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Criterios</th>
+                    <th scope="col">TSC Software</th>
+                    <th scope="col">Competencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Opcion Premiun</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M18 6l-12 12"></path>
+                        <path d="M6 6l12 12"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Precio Competitivo</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M18 6l-12 12"></path>
+                        <path d="M6 6l12 12"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Registro de Usuarios</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Preguntas Frecuentes</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Edicion de Perfiles</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Seguimiento de Tickets</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Chat</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Asistencia Gratuita</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M18 6l-12 12"></path>
+                        <path d="M6 6l12 12"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Telefono Incorporado</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M18 6l-12 12"></path>
+                        <path d="M6 6l12 12"></path>
+                        </svg></td>
+                </tr>
+                <tr>
+                    <th scope="row">Soporte 24/7</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: darkgreen" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" style="color: red" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M18 6l-12 12"></path>
+                        <path d="M6 6l12 12"></path>
+                        </svg></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div th:fragment="motivosUtilizarTCS" style="width: 80%; margin-left: 15% " class="d-flex justify-content-center">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Sistema Ligero</th>
+                    <th scope="col">Vista de Clientes</th>
+                    <th scope="col">Escalabilidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+                <tr>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <img src="https://us.123rf.com/450wm/blankstock/blankstock1901/blankstock190102641/125931591-icono-de-entrega-r%C3%A1pida-signo-de-tiempo-elemento-de-dise%C3%B1o-de-calidad-icono-de-estilo-cl%C3%A1sico.jpg?ver=6" style="width: 130px" alt=""></img>
+                        <p>Sistema ligero, lo que lo</p>
+                        <p>convierte en un sistema</p>
+                        <p>rapido de navegar entre</p>
+                        <p>ventanas</p>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <img src="https://st2.depositphotos.com/5266903/11817/v/600/depositphotos_118171126-stock-illustration-staff-flat-vector-icon.jpg" style="width: 100px" alt=""></img>
+                        <p>Analisis de tickets de clientes,</p>
+                        <p>notas de soluciones anteriores,</p>
+                        <p>experiencia del cliente y estado</p>
+                        <p>actual del ticket</p>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <img src="https://static.vecteezy.com/system/resources/previews/008/060/728/non_2x/website-statistics-linear-icon-with-scalability-vector.jpg" style="width: 100px" alt=""></img>
+                        <p>Se adapta a empresas de todos</p>
+                        <p>los tamanos con posibilidad de</p>
+                        <p>crecimiento a medida que la</p>
+                        <p>empresa lo necesite</p>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l5 5l10 -10"></path>
+                        </svg></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
 <br>
 <br>
