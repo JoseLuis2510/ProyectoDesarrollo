@@ -108,17 +108,18 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/categoria/listado", "/tickets/listado",
                         "/usuario/listado", "/producto/eliminar/**",
                         "/categoria/nuevo", "/calendario/calendario",
-                        "/categoria/modificar/**", "/categoria/eliminar/**",
+                        "/categoria/modificar/**", "/tcssoftware/tcssoftware",
                         "/usuario/nuevo", "/usuario/guardar",
                         "/usuario/modificar/**", "/usuario/eliminar/**",
                         "/reportes/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
+                        "/tcssoftware/tcssoftware",
                         "/categoria/listado",
                         "/tickets/listado",
                         "/usuario/listado"
                 ).hasAnyRole("ADMIN", "TECHNICAL")
-                .requestMatchers("/facturar/carrito")
+                .requestMatchers("/tcssoftware/tcssoftware")
                 .hasRole("USER")
                 )
                 .formLogin((form) -> form

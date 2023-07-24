@@ -7,6 +7,8 @@
     <body>
         
         <header th:replace="layout/plantilla :: header"></header>
+        <h4 style="text-align: center">[[#{plantilla.mensaje1}]]</h4>
+        <h4 style="text-align: center ; padding-left: 5%; padding-right: 5%"> [[#{plantilla.banner}]]</h4>
         <body th:replace="layout/plantilla :: terminosCondiciones"></body>
         <body th:replace="layout/plantilla :: tablaCriterios"></body>
         <br>

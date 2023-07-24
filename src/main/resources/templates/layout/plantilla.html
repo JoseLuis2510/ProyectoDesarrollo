@@ -31,7 +31,8 @@
                         </ul>
                         <ul class="navbar-nav">
                             <div>
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#botonRegistrarse" >Login</button>
+                                <button type="button" class="btn btn-success">
+                                    <a th:href="@{/login}" class="btn"></a>Login</button>
                             </div>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
@@ -45,15 +46,6 @@
                 </div>
             </nav>
 
-            <section id="main-header" class=" text-black">
-                <div class=" bs-light text-center mt-5 p-2">
-                    <div >
-                        <div>
-                            <h4><i></i> [[#{plantilla.banner}]]</h4>
-                        </div>
-                    </div>
-                </div>
-            </section>
             <div class="modal fade" id="botonRegistrarse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -77,71 +69,21 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Registrarse</button>
-                            <button type="submit" class="btn btn-primary">Ingresar</button>
+                            <button type="submit" class="btn btn-primary">
+                                <a th:href="@{/tcssoftware/tcssoftware}" class="btn"></a>Ingresar
+                            </button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <!--             <section id="main-header" class=" text-black">
-              <div class=" bs-secundary text-center mt-5 p-2">
-                  <div >
-                      <div>
-                          <h1><i></i> [[#{plantilla.imagen}]]</h1>
-                      </div>
-                  </div>
-              </div>
-          </section> -->
-            <section id="main-header" class=" text-black">
-                <div class=" bs-light text-center mt-5 p-2">
-                    <div >
-                        <div>
-                            <h4><i></i> [[#{plantilla.mensaje1}]]</h4>
-                        </div>
-                    </div>
-                </div>
-                <!--   </section>
-                                     <section id="main-header" class=" text-black">
-                    <div class=" bs-light text-center mt-5 p-2">
-                        <div >
-                            <div>
-                                <h1><i></i> [[#{plantilla.mensaje2}]]</h1>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                                     <section id="main-header" class=" text-black">
-                    <div class=" bs-light text-center mt-5 p-2">
-                        <div >
-                            <div>
-                                <h1><i></i> [[#{plantilla.imagen2}]]</h1>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                                <section id="main-header" class=" text-black">
-                    <div class=" bs-light text-center mt-5 p-2">
-                        <div >
-                            <div>
-                                <h1><i></i> [[#{plantilla.mensaje3}]]</h1>
-                            </div>
-                        </div>
-                    </div>
-               // </section> 
-                            </section>
-                                <section id="main-header" class=" text-black">
-                    <div class=" bs-light text-center mt-5 p-2">
-                        <div >
-                            <div>
-                                <h1><i></i> [[#{plantilla.mensaje3}]]</h1>
-                            </div>
-                        </div>
-                    </div>
-               // </section> -->
-
         </header>
+
+        <div >
+            <div>
+                <h4>[[#{plantilla.mensaje1}]]</h4>
+            </div>
+        </div>
         <div th:fragment="tablaCriterios" style="width: 80%; margin-left: 10% " class="d-flex justify-content-center">
             <table class="table table-striped">
                 <thead>
