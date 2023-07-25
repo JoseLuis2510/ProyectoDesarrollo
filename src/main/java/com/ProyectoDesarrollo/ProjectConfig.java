@@ -67,7 +67,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
     
-    /*
+
     @Bean
     public UserDetailsService users() {
         UserDetails admin = User.builder()
@@ -86,7 +86,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user, sales, admin);
-    }*/
+    }
     
     @Autowired
     private UserDetailsService userDetailsService;

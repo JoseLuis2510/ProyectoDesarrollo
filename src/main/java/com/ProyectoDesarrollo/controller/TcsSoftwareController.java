@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/tcssoftware")
-public class TcsSoftware {
+public class TcsSoftwareController {
     
     @GetMapping("/tcssoftware")
     public String page(Model model) {
