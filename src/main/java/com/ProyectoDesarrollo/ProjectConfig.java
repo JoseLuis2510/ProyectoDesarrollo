@@ -109,7 +109,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/usuario/listado", "/producto/eliminar/**",
                         "/categoria/nuevo", "/calendario/calendario",
                         "/categoria/modificar/**", "/tcssoftware/tcssoftware",
-                        "/usuario/nuevo", "/usuario/guardar",
+                        "/usuario/nuevo", "/usuario/guardar","/usuario/preguntas",
                         "/usuario/modificar/**", "/usuario/eliminar/**",
                         "/reportes/**"
                 ).hasRole("ADMIN")
