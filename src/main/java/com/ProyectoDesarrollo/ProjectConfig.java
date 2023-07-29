@@ -68,7 +68,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     }
     
 
-    @Bean
+   /* @Bean
     public UserDetailsService users() {
         UserDetails admin = User.builder()
                 .username("juan")
@@ -86,7 +86,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user, sales, admin);
-    }
+    }*/
     
     @Autowired
     private UserDetailsService userDetailsService;
@@ -98,6 +98,7 @@ public class ProjectConfig implements WebMvcConfigurer {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        
         http
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/index", "/errores/**","/error",
@@ -123,8 +124,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .hasRole("USER")
                 )
                 .formLogin((form) -> form
-                .loginPage("/login").permitAll())
+                .loginPage("/login").permitAll().defaultSuccessUrl("/tcssoftware/tcssoftware", true))
                 .logout((logout) -> logout.permitAll());
+        
         return http.build();
     }
     
