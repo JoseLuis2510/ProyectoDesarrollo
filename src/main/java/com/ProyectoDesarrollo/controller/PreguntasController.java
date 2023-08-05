@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/usuario")
+@RequestMapping("/preguntas")
 public class PreguntasController {
     
     @GetMapping("/preguntas")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "/usuario/preguntas";
+        return "/preguntas/preguntas";
     }
     
 }
