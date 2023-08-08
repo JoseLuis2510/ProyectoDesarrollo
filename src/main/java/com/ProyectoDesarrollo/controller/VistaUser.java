@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/tickets")
 public class VistaUser {
     
-    @GetMapping("/tcssoftware")
+    @GetMapping("/tickets")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
         return "/tickets/tickets";

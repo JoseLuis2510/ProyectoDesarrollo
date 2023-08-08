@@ -4,12 +4,122 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head th:fragment="head" >
+        <title>TCS Software</title>
+        <meta charset="UTF-8" />
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> 
+        <script src="/static/js/rutinas.js" type="text/javascript"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <!-- 1 Seccion del header normal-->
+        <section>
+            <div>
+                <header th:fragment="header" class="header">
+                    <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+                        <div class="container">
+                            <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
+                            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item"  th:href="@{/(lang=es)}">ES</a></li>
+                                        <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
+                                    </ul>
+                                </li>
+                            </ul>                        
+                        </div>
+                    </nav>
+                </header> 
+            </div>
+        </section>
+
+        <!-- 2 Seccion de preguntas del foro-->
+        <section th:fragment="foro">
+            <div>
+                <br>
+                <button type="button" class="btn btn-success" style="margin-left: 20px"><a href="javascript:history.go(-1)" style="color: white">Regresar</a></button>                
+                <br>
+                <br>
+                <h1 style="margin-left: 20px">Soluciones Frecuentes</h1>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                [[#{primer.pregunta.foro}]]
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Solucion: </strong> <br> Reinicia tu enrutador/modem: A veces, simplemente reiniciar tu enrutador o módem puede resolver problemas de conexión. Desconéctalos de la fuente de alimentación, espera unos segundos y luego vuelve a conectarlos.
+                                <br>
+                                Verifica las luces del enrutador/modem: Las luces en tu enrutador o módem pueden proporcionar pistas sobre la salud de tu conexión. Consulta el manual de tu dispositivo para entender qué significan las diferentes luces y si alguna indica un problema.
+                                <br>
+                                Conexiones por cable: Si estás utilizando una conexión por cable, asegúrate de que los cables estén bien conectados tanto en el enrutador como en tu dispositivo.
+                                <br>
+                                Conexiones inalámbricas: Si estás usando Wi-Fi, verifica que estás dentro del rango de señal del enrutador y que no haya interferencias que puedan afectar la señal, como paredes gruesas o dispositivos electrónicos cercanos.
+                                <br>
+                                Reinicia tu dispositivo: Asegúrate de que el problema no está en tu dispositivo. Intenta reiniciar tu computadora, teléfono u otro dispositivo que estés usando para conectarte a internet.
+                                <br>
+                                Verifica el estado de tu proveedor de servicios de internet (ISP): Algunas veces, los problemas pueden ser más amplios y estar relacionados con tu proveedor de servicios de internet. Puedes verificar si hay interrupciones en el servicio en tu área consultando el sitio web o las redes sociales de tu ISP.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                [[#{segunda.pregunta.foro}]]
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Solucion: </strong><br> Ventiladores: Los ventiladores son una parte esencial de cualquier computadora y pueden generar ruido cuando están en funcionamiento. 
+                                <br>
+                                Unidad de disco duro o unidad de estado sólido (SSD): Las unidades de almacenamiento, como los discos duros o SSDs, pueden generar ruidos al arrancar la computadora debido al movimiento de las partes internas. 
+                                <br>
+                                Componentes sueltos o mal conectados: Es posible que algunos componentes dentro de la computadora no estén correctamente encajados o sujetos, lo que podría causar ruidos al encender la PC. 
+                                <br>
+                                Problemas eléctricos: Si el ruido es más un chasquido o zumbido eléctrico, podría indicar un problema con la fuente de alimentación u otros componentes eléctricos. En este caso, es importante apagar la computadora y buscar asistencia técnica.
+                                <br>
+                                Componentes envejecidos o desgastados: Con el tiempo, algunos componentes de la computadora pueden comenzar a desgastarse y generar ruidos.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Como se si mi GPU hace cuello de botella
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Solucion: </strong><br> Monitorización de uso del hardware: Utiliza herramientas de monitorización de hardware como MSI Afterburner, HWMonitor, o el Administrador de Tareas en Windows para observar el uso de la GPU, la CPU, la RAM y el disco mientras ejecutas aplicaciones o juegos exigentes.
+                                <br>
+                                Comparación de rendimiento en diferentes configuraciones: Si tienes acceso a diferentes configuraciones de hardware, como CPU o RAM de diferentes capacidades, puedes realizar pruebas comparativas para ver cómo afectan al rendimiento de la GPU. 
+                                <br>
+                                Análisis de benchmarks: Ejecuta pruebas de referencia y benchmarks en tu sistema para evaluar su rendimiento en comparación con configuraciones similares.
+                                <br>
+                                Actualizaciones y pruebas: Si sospechas un cuello de botella, considera realizar actualizaciones en los componentes que puedan estar limitando el rendimiento de tu GPU, como la CPU, la RAM o el almacenamiento.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary" style="margin-left: 20px">Crear Ticket</button>
+                <button type="button" class="btn btn-primary">Estado del Ticket</button>
+            </div>
+        </section>
+        <section>
+            
+        </section>
+
     </body>
 </html>
