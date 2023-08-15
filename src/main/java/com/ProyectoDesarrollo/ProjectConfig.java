@@ -106,25 +106,20 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/registro/**", "/js/**", "/webjars/**", "/css/**")
                 .permitAll()
                 .requestMatchers(
-                        "/categoria/listado", "/tickets/listado",
-                        "/usuario/listado", "/producto/eliminar/**",
-                        "/categoria/nuevo", "/calendario/calendario",
-                        "/categoria/modificar/**", "/tcssoftware/tcssoftware",
+                        "/tickets/listado",
+                        "/usuario/listado","/calendario/calendario", "/tcssoftware/tcssoftware",
                         "/usuario/nuevo", "/usuario/guardar","/preguntas/preguntas",
                         "/usuario/modificar/**", "/usuario/eliminar/**","/tickets/tickets",
                         "/reportes/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
                         "/tcssoftware/tcssoftware",
-                        "/categoria/listado",
                         "/tickets/listado",
-                        "/usuario/listado"
+                        "/usuario/listado","/tickets/tickets"
                 ).hasAnyRole("ADMIN", "TECHNICAL")
-                .requestMatchers("/tcssoftware/tcssoftware")
-                .hasRole("USER")
-                )
+                .requestMatchers("/tickets/tickets").hasRole("USER"))
                 .formLogin((form) -> form
-                .loginPage("/login").permitAll().defaultSuccessUrl("/tcssoftware/tcssoftware", true))
+                .loginPage("/login").permitAll())
                 .logout((logout) -> logout.permitAll());
         
         return http.build();

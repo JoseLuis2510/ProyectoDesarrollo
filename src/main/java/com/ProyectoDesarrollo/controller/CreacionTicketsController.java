@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@RequestMapping("/tcssoftware")
-public class TcsSoftwareController {
+@RequestMapping("/creacionTicket")
+public class CreacionTicketsController {
     
-    @GetMapping("/tcssoftware")
+    @GetMapping("/creacionTicket")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "/tcssoftware/tcssoftware";
+        return "/creacionTicket/tickets";
     }
     
 }
