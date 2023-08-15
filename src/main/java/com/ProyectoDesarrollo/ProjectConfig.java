@@ -107,14 +107,14 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .permitAll()
                 .requestMatchers(
                         "/tickets/listado",
-                        "/usuario/listado","/calendario/calendario", "/tcssoftware/tcssoftware",
+                        "/usuario/listado","/calendario/calendario", "/creacionTicket/tickets",
                         "/usuario/nuevo", "/usuario/guardar","/preguntas/preguntas",
-                        "/usuario/modificar/**", "/usuario/eliminar/**","/tickets/tickets",
+                        "/usuario/modificar/**", "/usuario/eliminar/**","/ticket/listado",
                         "/reportes/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
-                        "/tcssoftware/tcssoftware",
-                        "/tickets/listado",
+                        "/creacionTicket/tickets",
+                        "/ticket/listado",
                         "/usuario/listado","/tickets/tickets"
                 ).hasAnyRole("ADMIN", "TECHNICAL")
                 .requestMatchers("/tickets/tickets").hasRole("USER"))

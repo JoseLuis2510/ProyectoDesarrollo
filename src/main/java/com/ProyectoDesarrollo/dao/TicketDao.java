@@ -11,6 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Andres.M
  */
-public interface GestionTicketDao extends JpaRepository<Ticket, Long> {
+public interface TicketDao extends JpaRepository<Ticket, Long> {
     
 }

@@ -24,8 +24,8 @@ import org.springframework.web.multipart.MultipartFile;
  */
 
 @Controller
-@RequestMapping("/gestionTicket")
-public class GestionTicketController {
+@RequestMapping("/ticket")
+public class TicketController {
     
     
     @Autowired
@@ -41,24 +41,24 @@ public class GestionTicketController {
         model.addAttribute("tickets", tickets);
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("totalTickets", tickets.size());
-        return "/gestionTicket/listado";
+        return "/ticket/listado";
     }
     
     @GetMapping("/nuevo")
     public String ticketNuevo(Ticket ticket) {
-        return "/gestionTicket/modifica";
+        return "/ticket/modifica";
     }
     
     @PostMapping("/guardar")
     public String ticketGuardar(Ticket ticket) {        
         ticketService.save(ticket);
-        return "redirect:/gestionTicket/listado";
+        return "redirect:/ticket/listado";
     }
     
     @GetMapping("/eliminar/{idTicket}")
     public String ticketEliminar(Ticket ticket) {
         ticketService.delete(ticket);
-        return "redirect:/gestionTicket/listado";
+        return "redirect:/ticket/listado";
     }
     
     @GetMapping("/modificar/{idTicket}")
@@ -67,7 +67,7 @@ public class GestionTicketController {
         List<Usuario> usuarios = usuarioService.getUsuarios();
         model.addAttribute("ticket", ticket);
         model.addAttribute("usuarios", usuarios);
-        return "/gestionTicket/modifica";
+        return "/ticket/modifica";
     }
     
     

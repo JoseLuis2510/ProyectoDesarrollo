@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.ProyectoDesarrollo.dao.GestionTicketDao;
+import com.ProyectoDesarrollo.dao.TicketDao;
 
 /**
  *
@@ -19,7 +19,7 @@ import com.ProyectoDesarrollo.dao.GestionTicketDao;
 @Service
 public class TicketServiceImpl implements TicketService{
     @Autowired
-    private GestionTicketDao ticketDao;
+    private TicketDao ticketDao;
 
     @Override
     @Transactional(readOnly = true)
