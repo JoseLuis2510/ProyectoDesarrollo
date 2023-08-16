@@ -17,7 +17,8 @@ import com.ProyectoDesarrollo.dao.TicketDao;
  * @author Andres.M
  */
 @Service
-public class TicketServiceImpl implements TicketService{
+public class TicketServiceImpl implements TicketService {
+
     @Autowired
     private TicketDao ticketDao;
 
@@ -25,10 +26,10 @@ public class TicketServiceImpl implements TicketService{
     @Transactional(readOnly = true)
     public List<Ticket> getTickets(boolean activos) {
         List<Ticket> lista = ticketDao.findAll();
-//        if (activos) {
-//            //Para remover las productos donde activo = false
-//            lista.removeIf(x -> !x.isActivo());
-//        }
+        if (activos) {
+            //Para remover las productos donde activo = false
+            lista.removeIf(x -> !x.isEstadoTicket());
+        }
         return lista;
     }
 
@@ -50,7 +51,4 @@ public class TicketServiceImpl implements TicketService{
         ticketDao.delete(ticket);
     }
 
-
-    
-    
 }

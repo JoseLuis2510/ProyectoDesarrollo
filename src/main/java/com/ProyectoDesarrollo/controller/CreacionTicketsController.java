@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/creacionTicket")
 public class CreacionTicketsController {
     
-    @GetMapping("/creacionTicket")
+    @GetMapping("/tickets")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "/creacionTicket/tickets";
+        return "creacionTicket/tickets";
     }
     
 }

@@ -233,14 +233,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             <td class="text-center">[[${contador.count}]]</td>
                                             <td>[[${ticket.usuario.username}]]</td>
                                             <td class="fs-6">[[${ticket.nombreTicket}]]</td>
-                                            <td class="fs-6">[[${ticket.textoProblema]]</td>
+                                            <td class="fs-6">[[${ticket.textoProblema}]]</td>
                                             <td class="fs-6">[[${ticket.textoSolucion}]]</td>
                                             <td  class="text-center" th:text="${ticket.estadoTicket} ? 'Activa' : 'Inactiva'" />
-                                            <td><a th:href="@{/producto/eliminar/}+${producto.idProducto}"
+                                            <td><a th:href="@{/ticket/eliminar/}+${ticket.idTicket}"
                                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
                                             <td>
-                                                <a th:href="@{/producto/modificar/}+${producto.idProducto}"
+                                                <a th:href="@{/ticket/modificar/}+${ticket.idTicket}"
                                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_TECHNICAL')">
                                                     <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
                                     </tbody>

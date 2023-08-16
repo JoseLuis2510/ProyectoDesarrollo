@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface TicketService {
     //Metodo que retorna la lista de tickets
-    public List<Ticket> getTickets(boolean activos);
+    public List<Ticket> getTickets(boolean estadoTicket);
     
      // Se obtiene un Ticket, a partir del id de un ticket
     public Ticket getTicket(Ticket ticket);

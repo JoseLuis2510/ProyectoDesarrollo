@@ -37,9 +37,7 @@ public class TicketController {
     @GetMapping("/listado")
     public String inicio(Model model) {
         List<Ticket> tickets = ticketService.getTickets(false);
-        List<Usuario> usuarios = usuarioService.getUsuarios();
         model.addAttribute("tickets", tickets);
-        model.addAttribute("usuarios", usuarios);
         model.addAttribute("totalTickets", tickets.size());
         return "/ticket/listado";
     }
@@ -64,9 +62,7 @@ public class TicketController {
     @GetMapping("/modificar/{idTicket}")
     public String ticketModificar(Ticket ticket, Model model) {
         ticket = ticketService.getTicket(ticket);
-        List<Usuario> usuarios = usuarioService.getUsuarios();
         model.addAttribute("ticket", ticket);
-        model.addAttribute("usuarios", usuarios);
         return "/ticket/modifica";
     }
     

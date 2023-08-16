@@ -27,10 +27,8 @@ public class Ticket implements Serializable{
     private Long idTicket;
     
     
-    @NotEmpty
     private String nombreTicket;
     
-    @NotEmpty
     private String textoProblema;
     private String textoSolucion;
     private boolean estadoTicket;
@@ -41,6 +39,8 @@ public class Ticket implements Serializable{
     private Usuario usuario;
     
     public Ticket(){}
+
+    
 
     
     
