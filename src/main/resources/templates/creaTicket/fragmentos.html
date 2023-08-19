@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head th:fragment="head" >
+        <title>TCS Software</title>
+        <meta charset="UTF-8" />
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script> 
+        <script src="/static/js/rutinas.js" type="text/javascript"></script>
+    </head>
+    <body style="min-height: 100vh ; display: 100vh ; align-items: center;justify-content: center; background-color: cornflowerblue">
+        <section th:fragment="crearTicket">
+            <form autocomplete="off" style="padding: 50px 55px; box-shadow:  0 0 20px rgba(0,0,0,0.2);text-align: center;width: 340px;background-color: bisque">
+                <h2 style="color: black; font-size: 25px">Creacion de Ticket</h2>
+                <div class="input-groupt">
+                    <input type="text" name="name" placeholder="Nombre usuario">
+                    <input type="text" name="TituloTicket" placeholder="Titulo del Ticket">
+                    <textarea name="problemaTicket" cols="30" rows="5" placeholder="Problema del Ticket"> </textarea>
+                    <input class="btn" type="submit" value="Enviar">
+                    
+                </div>
+            </form>
+        </section>
+    </body>
+</html>

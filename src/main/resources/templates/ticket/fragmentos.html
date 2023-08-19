@@ -210,58 +210,140 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         </div>
     </body>
-    
-    <section th:fragment="listadoTickets" id="tickets">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>[[#{lista.tickets}]]</h4></div>
-                            <div th:if="${tickets != null and !tickets.empty}" >
-                                <table class="table table-striped table-hover fs-6">
-                                    <thead class="table-dark">
-                                        <tr><th>#</th>
-                                            <th class="text-center">Nombre de Usuario</th>
-                                            <th class="text-center">Problema</th>
-                                            <th class="text-center">Solucion</th>
-                                            <th class="text-center">Estado Ticket</th>
-                                            <th></th><th></th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="ticket, contador : ${tickets}">
-                                            <td class="text-center">[[${contador.count}]]</td>
-                                            <td>[[${ticket.usuario.username}]]</td>
-                                            <td class="fs-6">[[${ticket.nombreTicket}]]</td>
-                                            <td class="fs-6">[[${ticket.textoProblema}]]</td>
-                                            <td class="fs-6">[[${ticket.textoSolucion}]]</td>
-                                            <td  class="text-center" th:text="${ticket.estadoTicket} ? 'Activa' : 'Inactiva'" />
-                                            <td><a th:href="@{/ticket/eliminar/}+${ticket.idTicket}"
-                                                   class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
-                                            <td>
-                                                <a th:href="@{/ticket/modificar/}+${ticket.idTicket}"
-                                                   class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_TECHNICAL')">
-                                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center p-2" th:if="${tickets == null or tickets.empty}">
-                                <span>[[#{lista.vacia}]]</span>
-                            </div>
+
+    <section th:fragment="listadoTickets" id="tickets" style="margin-top: 10px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>[[#{lista.tickets}]]</h4></div>
+                        <div th:if="${tickets != null and !tickets.empty}" >
+                            <table class="table table-striped table-hover fs-6">
+                                <thead class="table-dark">
+                                    <tr><th>#</th>
+                                        <th class="text-center">Nombre de Usuario</th>
+                                        <th class="text-center">Titulo del Problema</th>
+                                        <th class="text-center">Problema</th>
+                                        <th class="text-center">Solucion</th>
+                                        <th class="text-center">Estado Ticket</th>
+                                        <th></th><th></th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="ticket, contador : ${tickets}">
+                                        <td class="text-center">[[${contador.count}]]</td>
+                                        <td>[[${ticket.usuario.username}]]</td>
+                                        <td class="fs-6">[[${ticket.nombreTicket}]]</td>
+                                        <td class="fs-6">[[${ticket.textoProblema}]]</td>
+                                        <td class="fs-6">[[${ticket.textoSolucion}]]</td>
+                                        <td  class="text-center" th:text="${ticket.estadoTicket} ? 'Activa' : 'Inactiva'" />
+                                        <td><a th:href="@{/ticket/eliminar/}+${ticket.idTicket}"
+                                               class="btn btn-danger" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                                                <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
+                                        <td>
+                                            <a th:href="@{/ticket/modifica/}+${ticket.idTicket}"
+                                               class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_TECHNICAL')">
+                                                <i class="fas fa-pencil"></i> [[#{resolver.ticket}]]</a></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center p-2" th:if="${tickets == null or tickets.empty}">
+                            <span>[[#{lista.vacia}]]</span>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="card text-center bg-success text-white mb-3">
-                            <div class="card-body">
-                                <h3>Tickets Totales</h3>
-                                <h4 class="fs-2"><i class="fas fa-users"></i> Tickets Totales</h4>
-                            </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h3>Tickets Totales</h3>
+                            <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalTickets}]]</h4>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <section th:fragment="editarTicket">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form method="POST"
+                      th:action="@{/ticket/guardar}" th:object="${ticket}"
+                      class="was-validated"
+                      enctype="multipart/form-data">
+                    <input type="hidden" name="idTicket" th:field="*{idTicket}"/>
+                    <section th:replace="~{ticket/fragmentos :: botonesEditar}"/>
+                    <div id="details">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>[[#{accion.actualizar}]]</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label for="idTicket">[[#{plantilla.tickets}]]</label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="nombreTicket">[[#{ticket.nombre}]]</label>
+                                                <input type="text" class="form-control" 
+                                                       th:field="*{nombreTicket}"
+                                                       required="true">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="textoProblema">[[#{titulo.problema}]]</label>                                    
+                                                <textarea class="form-control" 
+                                                          th:field="*{textoProblema}" rows="3"></textarea>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="textoSolucion">[[#{texto.solucion}]]</label>                                    
+                                                <input type="number" class="form-control" 
+                                                       th:field="*{textoSolucion}" required="true"/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="estadoTicket">[[#{estado.ticket}]]</label>
+                                                <input class="form-check-input" 
+                                                       type="checkbox" 
+                                                       th:field="*{estadoTicket}" 
+                                                       id="activo"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <section th:fragment="botonesEditar">
+        <div class="container py-4 mb-4 bg-light">
+            <div class="row">
+                <div class="col-md-4 d-grid">
+                    <a th:href="@{/ticket/listado}" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                    </a>
+                </div>
+                <div class="col-md-4 d-grid">                                
+                    <a th:href="@{/ticket/eliminar/}+${ticket.idProducto}"
+                       class="btn btn-danger">
+                        <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                    </a>
+                </div>
+                <div class="col-md-4 d-grid">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <footer class="fixed-bottom text-center text-lg-start">

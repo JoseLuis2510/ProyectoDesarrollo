@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/springframework/Controller.java to edit this template
  */
 package com.ProyectoDesarrollo.controller;
 
@@ -13,17 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author Andres.M
  */
-
 @Controller
-@RequestMapping("/creacionTicket")
-public class CreacionTicketsController {
+@RequestMapping("/creaTicket")
+public class CrearTicket {
     
-    @GetMapping("/tickets")
+    @GetMapping("/creaTicket")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "creacionTicket/tickets";
+        return "creaTicket/creaTicket";
     }
-    
-    
     
 }
