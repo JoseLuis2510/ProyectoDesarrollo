@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TCS Software</title>        
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <div class="container" style="margin-top: 10px">
+            <div class="row"></div>
+            <div class="row row-cols-6" >
+                <a href="javascript:history.go(-1)" style="color: white" class="btn btn-primary">
+                    <i class='fas fa-reply'></i> [[#{accion.regresar}]]</a>
+            </div>
+            <div class="row" style="margin-top: 10px"></div>
+            <div class="row row-cols-3">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Reporte de Tickets
+                    </div>
+                    <div class="card-body">
+                        <a th:href="@{/reportes/tickets?tipo=vPdf}" class="btn btn-primary">
+                            <i class='fas fa-eye'></i><i class='fas fa-file-pdf'></i>
+                        </a>
+                        <a th:href="@{/reportes/tickets?tipo=Pdf}" class="btn btn-success">
+                            <i class='fas fa-download'></i><i class='fas fa-file-pdf'></i>
+                        </a>
+                        <a th:href="@{/reportes/tickets?tipo=Xls}" class="btn btn-warning">
+                            <i class='fas fa-download'></i><i class='fas fa-file-excel'></i>
+                        </a>
+                        <a th:href="@{/reportes/tickets?tipo=Csv}" class="btn btn-danger">
+                            <i class='fas fa-download'></i><i class='fas fa-file-csv'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>         
+    </body>
+</html>

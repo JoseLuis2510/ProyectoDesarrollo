@@ -41,7 +41,4 @@ public class Ticket implements Serializable{
     public Ticket(){}
 
     
-
-    
-    
 }
