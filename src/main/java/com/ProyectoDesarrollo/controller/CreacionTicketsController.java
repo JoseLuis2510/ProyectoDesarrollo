@@ -24,6 +24,4 @@ public class CreacionTicketsController {
         return "creacionTicket/tickets";
     }
     
-    
-    
 }
