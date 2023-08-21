@@ -47,14 +47,6 @@ public class UsuarioController {
     @PostMapping("/guardar")
     public String usuarioGuardar(Usuario usuario) {
         usuario.setPassword(new BCryptPasswordEncoder().encode(usuario.getPassword()));
-        /*if (!imagenFile.isEmpty()) {
-            usuarioService.save(usuario,false);
-            usuario.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "usuario",
-                            usuario.getIdUsuario()));
-        }*/
         usuarioService.save(usuario, true);
         return "redirect:/usuario/listado";
     }
