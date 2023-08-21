@@ -59,7 +59,7 @@ public class TicketController {
         return "redirect:/ticket/listado";
     }
     
-    @GetMapping("/modificar/{idTicket}")
+    @GetMapping("/modifica/{idTicket}")
     public String ticketModificar(Ticket ticket, Model model) {
         ticket = ticketService.getTicket(ticket);
         model.addAttribute("ticket", ticket);

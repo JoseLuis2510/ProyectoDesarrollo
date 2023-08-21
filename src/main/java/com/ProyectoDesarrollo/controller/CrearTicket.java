@@ -27,7 +27,7 @@ public class CrearTicket {
     @GetMapping("/creaTicket")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "creaTicket/creaTicket";
+        return "/creaTicket/creaTicket";
     }
     
     @PostMapping("/guardar")

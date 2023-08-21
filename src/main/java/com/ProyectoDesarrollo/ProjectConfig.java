@@ -105,17 +105,17 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/registro/**", "/js/**", "/webjars/**", "/css/**")
                 .permitAll()
                 .requestMatchers(
-                        "/tickets/listado",
+                        "/tickets/listado","/ticket/guardar",
                         "/usuario/listado","/calendario/calendario",
-                        "/usuario/nuevo", "/usuario/guardar","/preguntas/preguntas","/ticket/eliminar",
+                        "/usuario/nuevo", "/usuario/guardar","/preguntas/preguntas","/ticket/eliminar","/ticket/eliminar/**",
                         "/usuario/modificar/**", "/usuario/eliminar/**","/ticket/modifica","/ticket/modifica/**","/ticket/listado",
                         "/reportes/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
-                        "/ticket/listado","/ticket/modifica","/ticket/modifica/**",
-                        "/usuario/listado","/tickets/tickets"
+                        "/ticket/listado","/ticket/modifica","/ticket/modifica/**","/ticket/guardar",
+                        "/usuario/listado","/tickets/tickets","/ticket/eliminar/**"
                 ).hasAnyRole("ADMIN", "TECHNICAL")
-                .requestMatchers("/tickets/tickets","creacionTicket/tickets","creaTicket/creaTicket").hasRole("USER"))
+                .requestMatchers("/tickets/tickets","creacionTicket/tickets","/creaTicket/creaTicket","/ticket/guardar").hasRole("USER"))
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())
                 .logout((logout) -> logout.permitAll());

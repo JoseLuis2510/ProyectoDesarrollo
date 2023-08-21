@@ -51,5 +51,8 @@ public class ReporteController {
         var reporte = "tickets";
         return reporteService.generaReporte(reporte, null, tipo);
     }
+    
+   
+    
 
 }
