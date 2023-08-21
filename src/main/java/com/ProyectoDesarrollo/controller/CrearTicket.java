@@ -33,7 +33,7 @@ public class CrearTicket {
     @PostMapping("/guardar")
     public String ticketGuardar(Ticket ticket) {        
         ticketService.save(ticket);
-        return "redirect:/ticket/listado";
+        return "redirect:/creaTicket/creaTicket";
     }
     
     

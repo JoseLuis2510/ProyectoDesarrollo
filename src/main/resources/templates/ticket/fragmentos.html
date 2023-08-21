@@ -246,7 +246,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                 <i class="fas fa-pencil"></i> [[#{resolver.ticket}]]</a></td></tr>
                                 </tbody>
                             </table>
-                            
+
                         </div>
                         <div class="text-center p-2" th:if="${tickets == null or tickets.empty}">
                             <span>[[#{lista.vacia}]]</span>
@@ -285,24 +285,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             <h4>[[#{accion.actualizar}]]</h4>
                                         </div>
                                         <div class="card-body">
-                                            <div class="mb-3">
-                                                <label for="idTicket">[[#{plantilla.tickets}]]</label>
+                                            <div class="mb-3" style="display: none">
+                                                <label for="usuario">[[#{plantilla.tickets}]]</label>
+                                                <input type="text" class="form-control" 
+                                                       th:field="*{usuario}"
+                                                       required="true">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="nombreTicket">[[#{ticket.nombre}]]</label>
                                                 <input type="text" class="form-control" 
                                                        th:field="*{nombreTicket}"
-                                                       required="true">
+                                                       required="true" readonly="readonly">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="textoProblema">[[#{titulo.problema}]]</label>                                    
+                                                <label for="textoProblema">[[#{titulo.problema}]]</label>                                
                                                 <textarea class="form-control" 
-                                                          th:field="*{textoProblema}" rows="3"></textarea>
+                                                          th:field="*{textoProblema}" rows="3" readonly="readonly"></textarea>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="textoSolucion">[[#{texto.solucion}]]</label>                                    
-                                                <input type="number" class="form-control" 
+                                                <input type="text" class="form-control" 
                                                        th:field="*{textoSolucion}" required="true"/>
                                             </div>
                                             <div class="mb-3">
@@ -333,7 +336,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </a>
                 </div>
                 <div class="col-md-4 d-grid">                                
-                    <a th:href="@{/ticket/eliminar/}+${ticket.idProducto}"
+                    <a th:href="@{/ticket/eliminar/}+${ticket.idTicket}"
                        class="btn btn-danger">
                         <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                     </a>
