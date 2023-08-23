@@ -115,7 +115,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/ticket/listado","/ticket/modifica","/ticket/modifica/**","/ticket/guardar",
                         "/usuario/listado","/tickets/tickets","/ticket/eliminar/**"
                 ).hasAnyRole("ADMIN", "TECHNICAL")
-                .requestMatchers("/tickets/tickets","creacionTicket/tickets","/creaTicket/creaTicket","/ticket/guardar").hasRole("USER"))
+                .requestMatchers("/tickets/tickets","creacionTicket/tickets","/creaTicket/creaTicket","/ticket/guardar","/ticket/modifica").hasRole("USER"))
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())
                 .logout((logout) -> logout.permitAll());

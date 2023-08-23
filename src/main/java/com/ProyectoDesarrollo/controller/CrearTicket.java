@@ -30,10 +30,21 @@ public class CrearTicket {
         return "/creaTicket/creaTicket";
     }
     
+    
+    
+    // Pruebas
+    
     @PostMapping("/guardar")
     public String ticketGuardar(Ticket ticket) {        
         ticketService.save(ticket);
         return "redirect:/creaTicket/creaTicket";
+    }
+    
+    @PostMapping("/modifica/{idTicket}")
+    public String ticketModificar(Ticket ticket, Model model) {
+        ticket = ticketService.getTicket(ticket);
+        model.addAttribute("ticket", ticket);
+        return "/ticket/modifica";
     }
     
     
