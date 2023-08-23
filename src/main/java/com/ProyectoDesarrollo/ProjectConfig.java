@@ -102,20 +102,20 @@ public class ProjectConfig implements WebMvcConfigurer {
         http
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/index", "/errores/**","/error", "/reportes/**",
-                        "/registro/**", "/js/**", "/webjars/**", "/css/**")
+                        "/registro/**", "/js/**", "/webjars/**", "/css/**","/creaTicket/crear")
                 .permitAll()
                 .requestMatchers(
                         "/tickets/listado","/ticket/guardar",
                         "/usuario/listado","/calendario/calendario",
                         "/usuario/nuevo", "/usuario/guardar","/preguntas/preguntas","/ticket/eliminar","/ticket/eliminar/**",
-                        "/usuario/modificar/**", "/usuario/eliminar/**","/ticket/modifica","/ticket/modifica/**","/ticket/listado",
+                        "/usuario/modificar/**", "/usuario/eliminar/**","/ticket/modifica","/ticket/modifica/**","/ticket/listado","/creaTicket/crear",
                         "/reportes/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
                         "/ticket/listado","/ticket/modifica","/ticket/modifica/**","/ticket/guardar",
-                        "/usuario/listado","/tickets/tickets","/ticket/eliminar/**"
+                        "/usuario/listado","/tickets/tickets","/ticket/eliminar/**","/creaTicket/crear"
                 ).hasAnyRole("ADMIN", "TECHNICAL")
-                .requestMatchers("/tickets/tickets","creacionTicket/tickets","/creaTicket/creaTicket","/ticket/guardar","/ticket/modifica").hasRole("USER"))
+                .requestMatchers("/tickets/tickets","creacionTicket/tickets","/creaTicket/creaTicket","/ticket/guardar","/ticket/modifica","/creaTicket/crear","/creaTicket/formulario").hasRole("USER"))
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())
                 .logout((logout) -> logout.permitAll());
