@@ -23,12 +23,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav">
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/tickets/listado}">[[#{plantilla.tickets}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/calendario/calendario}">[[#{calendario.titulo}]]</a></li>
-                        </ul>
-                        <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lang</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
@@ -36,7 +30,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
                                 </ul>
                             </li>
-                        </ul>                        
+                        </ul>
+                        <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                            <a th:href="@{/login}" class="btn"><button type="button" class="btn btn-success">Login</button></a>
+                        </ul> 
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                            <li class="nav-item text-white my-auto">
+                                <i class="fa fa-user"></i> <span sec:authentication="name">Username</span>&nbsp;
+                            </li>
+                            <li class="nav-item my-auto">
+                                <form method="POST" th:action="@{/logout}">
+                                    <button class="btn btn-danger">LogOut</button>
+                                </form>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -48,7 +55,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </form>
 
 
-                <a href="/"><button style="margin-left: 2%" type="button" class="btn btn-success"> [[#{btn.atras}]] </button></a>
+                <a href="javascript:history.go(-1)" style="color: white"><button style="margin-left: 2%" type="button" class="btn btn-success"> [[#{btn.atras}]] </button></a>
 
 
             </div>        

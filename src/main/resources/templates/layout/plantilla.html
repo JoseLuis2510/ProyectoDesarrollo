@@ -418,6 +418,63 @@
     </div>
 </div>
 
+<div th:fragment="politicaSeguridad" class="modal fade" id="politicaSeguridad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="politicaSeguridad">Politica de Seguridad</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                En TCS Software, estamos comprometidos con la protección de los datos sensibles y la seguridad de la información relacionada con la creación de tickets de call center a través de nuestro software. Esta política establece los lineamientos y las medidas de seguridad que se deben seguir para garantizar la confidencialidad, integridad y disponibilidad de los datos de nuestros clientes y usuarios.
+
+                1. Acceso y Autenticación:
+
+                1.1. El acceso al software de creación de tickets de call center estará restringido a usuarios autorizados y se basará en un sistema de autenticación sólido, como contraseñas seguras, autenticación de dos factores u otras medidas de seguridad avanzadas.
+
+                1.2. Los usuarios deberán mantener sus credenciales de acceso confidenciales y no compartirlas con terceros. El personal de TCS Software nunca solicitará contraseñas ni información de acceso por medios no seguros.
+
+                2. Protección de Datos:
+
+                2.1. Los datos de los clientes y usuarios almacenados en el sistema de creación de tickets serán tratados de acuerdo con las regulaciones de protección de datos aplicables. Los datos se recopilarán, procesarán y almacenarán únicamente con el consentimiento del titular de los datos.
+
+                2.2. Implementaremos medidas técnicas y organizativas para proteger los datos contra el acceso no autorizado, la pérdida, la divulgación y la alteración.
+
+                3. Comunicación Segura:
+
+                3.1. La comunicación entre el software de creación de tickets y los usuarios se cifrará mediante protocolos seguros, como HTTPS, para proteger la información transmitida.
+
+                3.2. Las comunicaciones relacionadas con problemas técnicos, actualizaciones y notificaciones se enviarán solo a las direcciones de correo electrónico autorizadas y verificadas.
+
+                4. Actualizaciones y Parches:
+
+                4.1. Mantendremos el software de creación de tickets actualizado con las últimas correcciones de seguridad y parches de software para mitigar posibles vulnerabilidades.
+
+                5. Copias de Seguridad:
+
+                5.1. Realizaremos copias de seguridad periódicas de los datos almacenados en el sistema de creación de tickets para garantizar su disponibilidad en caso de fallas del sistema, errores humanos o ataques cibernéticos.
+
+                6. Monitoreo y Detección de Intrusiones:
+
+                6.1. Implementaremos sistemas de monitoreo para detectar actividades inusuales o sospechosas en el software. Cualquier actividad sospechosa será investigada y abordada de manera apropiada.
+
+                7. Formación y Concienciación:
+
+                7.1. Todos los usuarios y el personal de TCS Software recibirán capacitación sobre las mejores prácticas de seguridad, incluyendo la identificación de amenazas cibernéticas y la prevención de ataques de ingeniería social.
+
+                8. Gestión de Incidentes:
+
+                8.1. Estableceremos un plan de respuesta a incidentes para abordar de manera eficaz cualquier violación de seguridad o incidente cibernético que pueda afectar la confidencialidad, integridad o disponibilidad de los datos.
+
+                Esta política de seguridad refleja nuestro compromiso con la protección de datos y la seguridad de la información en la creación de tickets de call center a través de nuestro software. La dirección y el equipo de seguridad de TCS Software supervisarán y actualizarán regularmente esta política para asegurarse de que se mantenga efectiva y cumpla con las cambiantes amenazas de seguridad cibernética.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer th:fragment="footer" class="bg-info text-white mt-5 p-2">
     <div class="container">
         <div class="navbar navbar-expand-sm navbar-toggler bg-info p-0">
@@ -426,7 +483,7 @@
                 <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#terminosCondiciones" th:href="@{terminosCondiciones}">[[#{plantilla.terminos}]]</a></li>
                 <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#notificacionDePrivacidad" th:href="@{notificacionDePrivacidad}">[[#{plantilla.privacidad}]]</a></li>
                 <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#politicaEliminacion" th:href="@{politicaEliminacion}">[[#{plantilla.politica}]]</a></li>
-                <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.seguridad}]]</a></li>
+                <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#politicaSeguridad" th:href="@{politicaSeguridad}">[[#{plantilla.seguridad}]]</a></li>
                 <li class="nav-item px-2"><a class="nav-link" th:href="@{/preguntas/preguntas}">[[#{plantilla.preguntas}]]</a></li>
 
             </ul>

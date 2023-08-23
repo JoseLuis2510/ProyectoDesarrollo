@@ -211,7 +211,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </div>
     </body>
 
-    <section th:fragment="listadoTickets" id="tickets" style="margin-top: 10px">
+    <section th:fragment="listadoTickets" id="tickets" style="margin-top: 10px; margin-left: 5%">
+        <div class="grid-item" style="border-style:ridge;float:left; width: 400px; padding: 10px; height: 300px; text-align: center">
+            <div style="background-color: beige;  height: 20%; padding-top: 15px"><h2 style="font-size:20px ">Herramientas</h2>
+            </div>
+            <div style="text-align: left; padding-left: 20px">
+                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#manualTickets" th:href="@{manualTickets}">Manual</a> 
+                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#contactosTicket" th:href="@{contactosTicket}">Contactos</a>
+                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#temasTicket" th:href="@{temasTicket}">Temas</a>
+                <a class="nav-link" th:href="@{/calendario/calendario}">Calendario</a>
+                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#calculadoraTicket" th:href="@{calculadoraTicket}">Calculadora</a> 
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
@@ -236,7 +247,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <td class="fs-6">[[${ticket.nombreTicket}]]</td>
                                         <td class="fs-6">[[${ticket.textoProblema}]]</td>
                                         <td class="fs-6">[[${ticket.textoSolucion}]]</td>
-                                        <td  class="text-center" th:text="${ticket.estadoTicket} ? 'Activa' : 'Inactiva'" />
+                                        <td  class="text-center" th:text="${ticket.estadoTicket} ? 'Resuelta' : 'Activa'" />
                                         <td><a th:href="@{/ticket/eliminar/}+${ticket.idTicket}"
                                                class="btn btn-danger" sec:authorize="hasAnyRole('ROLE_ADMIN')">
                                                 <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
@@ -350,50 +361,357 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </div>
     </section>
 
+    <div th:fragment="manualTickets" class="modal fade" id="manualTickets" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="manualTickets">Manual</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡Bienvenido al Sistema de Creación de Tickets de Call Center de TCS Software! Este manual te proporcionará una guía rápida sobre cómo utilizar nuestro sistema para gestionar eficientemente los tickets de tus clientes y brindar un servicio excepcional.
+
+                    1. Inicio de Sesión:
+
+                    1.1. Abre tu navegador web e ingresa la URL proporcionada por TCS Software para acceder al sistema.
+
+                    1.2. Ingresa tus credenciales de usuario (nombre de usuario y contraseña).
+
+                    1.3. Si es la primera vez que inicias sesión, es posible que se te solicite cambiar tu contraseña o configurar la autenticación de dos factores.
+
+                    2. Panel de Control:
+
+                    2.1. Una vez que hayas iniciado sesión, serás redirigido al panel de control principal. Aquí encontrarás una vista general de los tickets pendientes, asignados y resueltos.
+
+                    2.2. Utiliza los filtros y opciones de búsqueda para encontrar tickets específicos según el estado, la prioridad o el cliente.
+
+                    3. Creación de Tickets:
+
+                    3.1. Haz clic en el botón "Nuevo Ticket" o una opción similar para crear un nuevo ticket.
+
+                    3.2. Rellena los campos obligatorios, como el nombre del cliente, la descripción del problema y la prioridad del ticket.
+
+                    3.3. Si es necesario, asigna el ticket a un agente específico del call center.
+
+                    4. Gestión de Tickets:
+
+                    4.1. Una vez creado un ticket, podrás ver su estado, detalles y comentarios relacionados.
+
+                    4.2. Los agentes pueden agregar comentarios para proporcionar actualizaciones sobre el progreso del ticket.
+
+                    4.3. Cambia el estado del ticket a medida que avanza el proceso de resolución, por ejemplo, de "Pendiente" a "En Proceso" y finalmente a "Resuelto".
+
+                    5. Comunicación con el Cliente:
+
+                    5.1. Utiliza el sistema para comunicarte con el cliente a través de comentarios. Mantén al cliente informado sobre el progreso y las soluciones propuestas.
+
+                    5.2. Puedes adjuntar archivos relevantes, como capturas de pantalla o documentos, para una comunicación más efectiva.
+
+                    6. Cierre del Ticket:
+
+                    6.1. Una vez que el problema esté resuelto y confirmado por el cliente, cambia el estado del ticket a "Cerrado".
+
+                    6.2. Asegúrate de que todos los detalles y comunicaciones relevantes estén registrados antes de cerrar el ticket.
+
+                    7. Seguridad y Mejores Prácticas:
+
+                    7.1. Mantén tus credenciales de inicio de sesión seguras y no las compartas con nadie.
+
+                    7.2. Evita acceder al sistema desde dispositivos públicos o redes no seguras.
+
+                    7.3. Utiliza contraseñas fuertes y considera habilitar la autenticación de dos factores si está disponible.
+
+                    7.4. Si tienes problemas técnicos o preguntas, comunícate con el equipo de soporte de TCS Software.
+
+                    ¡Listo! Ahora estás preparado para utilizar eficazmente el Sistema de Creación de Tickets de Call Center de TCS Software. Si tienes más preguntas o necesitas ayuda adicional, consulta con el equipo de soporte o revisa la documentación completa en caso de requerir detalles más avanzados.</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="contactosTicket" class="modal fade" id="contactosTicket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="contactosTicket">Contactos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <a href="#" style="font-size: 17px;
+                       display: inline-block;
+                       text-decoration: none;
+                       width: 100%;
+                       margin-bottom: 15px;
+                       color: black;
+                       font-weight: 700;"><i class="fa fa-phone" style="color: orange;
+                         margin-right: 10px;"></i>8456-5821 / 7469-8512</a>
+                    <a href="#" style="font-size: 17px;
+                       display: inline-block;
+                       text-decoration: none;
+                       width: 100%;
+                       margin-bottom: 15px;
+                       color: black;
+                       font-weight: 700;"><i class="fa fa-envelope" style="color: orange;
+                         margin-right: 10px;"></i>servicioalcliente@tcsoftware.com</a>
+                    <a href="#" style="font-size: 17px;
+                       display: inline-block;
+                       text-decoration: none;
+                       width: 100%;
+                       margin-bottom: 15px;
+                       color: black;
+                       font-weight: 700;"><i class="fa fa-map-marked" style="color: orange;
+                         margin-right: 10px;"></i>Ciudad , Pais</a> </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:fragment="temasTicket" class="modal fade" id="temasTicket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="temasTicket">Temas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tema</th>
+                                <th scope="col">Descripcion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Inicio Sesion</td>
+                                <td>Implementación de autenticación y autorización de usuarios.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Panel de Control</td>
+                                <td>Creación de una vista general con estadísticas y tickets pendientes/asignados/resueltos.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Creación de Tickets</td>
+                                <td>Diseño de formularios para crear nuevos tickets, incluyendo campos obligatorios y opciones.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Comunicación Cliente</td>
+                                <td>Implementación de comentarios y comunicación entre agentes y clientes dentro de los tickets.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Cierre de Tickets</td>
+                                <td>Definición de criterios y procesos para cerrar tickets una vez que los problemas se resuelvan.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Seguridad y Autenticación</td>
+                                <td>Configuración de medidas de seguridad como contraseñas seguras y autenticación de dos factores.</td>
+                            </tr>
+                        </tbody>
+                    </table></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="calculadoraTicket" class="modal fade" id="calculadoraTicket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="calculadoraTicket">Calculadora</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name="calculator" style="width: 100%;
+                          max-width: 400px;
+                          text-align: center;
+                          border: solid 1px #c2c2c2;
+                          padding-bottom: 10px;
+                          margin: auto;
+                          background: #fafafa;">
+                        <p>Haz algun calculo para ver el resultado.</p>
+                        <input type="textfield" name="ans" value="" style="width: 75%;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               margin: 8px 0;
+                               border: 1px solid silver;
+                               border-radius: 1px;
+                               text-align: left;
+                               color: #333;
+                               background: #ccc;">
+                        <br>
+                        <input type="button" value="1" onClick="document.calculator.ans.value += '1'" style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="2" onClick="document.calculator.ans.value += '2'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="3" onClick="document.calculator.ans.value += '3'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="+" onClick="document.calculator.ans.value += '+'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <br>
+                        <input type="button" value="4" onClick="document.calculator.ans.value += '4'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="5" onClick="document.calculator.ans.value += '5'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="6" onClick="document.calculator.ans.value += '6'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="-" onClick="document.calculator.ans.value += '-'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <br>
+                        <input type="button" value="7" onClick="document.calculator.ans.value += '7'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="8" onClick="document.calculator.ans.value += '8'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="9" onClick="document.calculator.ans.value += '9'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="*" onClick="document.calculator.ans.value += '*'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <br>
+                        <input type="button" value="0" onClick="document.calculator.ans.value += '0'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="reset" value="c"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="/" onClick="document.calculator.ans.value += '/'"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                        <input type="button" value="=" onClick="document.calculator.ans.value = eval(document.calculator.ans.value)"style="background-color: #4CAF50;
+                               border: none;
+                               color: white;
+                               padding: 16px 32px;
+                               font-size: 16px;
+                               min-width: 21%;
+                               text-decoration: none;
+                               margin: 4px 2px;
+                               cursor: pointer;">
+                    </form></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <footer class="fixed-bottom text-center text-lg-start">
         <nav class="navbar navbar-expand-lg navbar-light"style="background-color: lightblue"
              <!-- Container wrapper -->
-            <div class="container-fluid">
-                <!-- Toggle button -->
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-mdb-toggle="collapse"
-                    data-mdb-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    >
-                    <i class="fas fa-bars"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                </div>
-
-                <div class="d-flex align-items-center">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/}">Clientes</a> 
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/usuario/listado}">Usuario</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/tickets/tickets}">Tickets</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/}">Inicio</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-
+            <div style="text-align: center; margin-left: 40%">&COPY [[#{plantilla.derechos}]]</div>
         </nav>
-
-
     </footer>
 
 
